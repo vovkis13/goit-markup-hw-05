@@ -135,11 +135,11 @@ img {
   color: var(--secondary-text-color);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.addr:hover,
+.header-addr-item:hover > .addr,
 .addr:focus {
   color: var(--accent-text-color);
 }
-.header-addr-item:focus-within > .header-icon {
+.header-addr-item:focus-within .header-icon {
   fill: var(--accent-text-color);
 }
 
@@ -438,11 +438,43 @@ img {
   margin-right: 30px;
   margin-bottom: 30px;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 .works-list-item:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
+.works-list-link:hover .works-list-overlay,
+.works-list-link:focus .works-list-overlay {
+  transform: translateY(0);
+
+}
+
+.thumb {
+  position: relative;
+  overflow: hidden;
+}
+.works-list-overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--white-text-color);
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
 .portfolio-box {
   border: 1px solid var(--portfolio-border-color);
   border-top: none;
@@ -463,9 +495,11 @@ img {
 .portfolio-description {
   margin-left: 24px;
 
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.03em;
+  color: var(--secondary-text-color);
 }
 
 /*==============footer=============*/
@@ -544,4 +578,44 @@ img {
   margin: 12px;
 }
 
-/*====================================*/
+/*============Backdrop==============*/
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  background-color: var(--white-text-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  background-color: var(--white-text-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+
+  cursor: pointer;
+}
