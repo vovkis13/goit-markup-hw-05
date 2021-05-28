@@ -10,6 +10,8 @@
   --header-border-color: #ececec;
   --portfolio-border-color: #eeeeee;
   --default-svg-color: #afb1b8;
+  --default-transition-delay: 250ms;
+  --default-transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /*=============Common====================*/
 
@@ -100,7 +102,7 @@ img {
 }
 .nav {
   color: var(--primary-text-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--default-transition-delay) var(--default-transition-timing);
 }
 
 .nav:hover,
@@ -133,12 +135,16 @@ img {
 .addr {
   display: block;
   color: var(--secondary-text-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--default-transition-delay) var(--default-transition-timing);
 }
 .header-addr-item:hover > .addr,
 .addr:focus {
   color: var(--accent-text-color);
 }
+.addr:hover {
+  color: var(--accent-text-color);
+}
+
 .header-addr-item:focus-within .header-icon {
   fill: var(--accent-text-color);
 }
@@ -160,7 +166,7 @@ img {
 .header-icon {
   margin-right: 10px;
   fill: var(--secondary-text-color);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill var(--default-transition-delay) var(--default-transition-timing);
 }
 /*=============Hero====================*/
 .hero {
@@ -211,7 +217,7 @@ img {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--default-transition-delay) var(--default-transition-timing);
 }
 .hero-button:hover,
 .hero-button:focus {
@@ -342,7 +348,7 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--default-transition-delay) var(--default-transition-timing);
 }
 .social-link:hover,
 .social-link:focus {
@@ -355,7 +361,7 @@ img {
 .social-icon {
   fill: var(--default-svg-color);
   margin: 12px;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill var(--default-transition-delay) var(--default-transition-timing);
 }
 /*=============Clients====================*/
 
@@ -376,7 +382,7 @@ img {
   background-color: var(--white-text-color);
   border: 1px solid var(--default-svg-color);
   border-radius: 4px;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border var(--default-transition-delay) var(--default-transition-timing);
 }
 .clients-link:hover,
 .clients-link:focus {
@@ -389,7 +395,7 @@ img {
 
 .clients-icon {
   fill: var(--default-svg-color);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill var(--default-transition-delay) var(--default-transition-timing);
 }
 /*=============Portfolio====================*/
 .filter-list {
@@ -416,8 +422,9 @@ img {
   background-color: var(--button-primary-bg-color);
 
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--default-transition-delay) var(--default-transition-timing),
+    color var(--default-transition-delay) var(--default-transition-timing),
+    border var(--default-transition-delay) var(--default-transition-timing);
 }
 
 .filter-button:hover,
@@ -437,8 +444,7 @@ img {
   width: calc((100% - 3 * 30px) / 3);
   margin-right: 30px;
   margin-bottom: 30px;
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
+  transition: box-shadow var(--default-transition-delay) var(--default-transition-timing);
 }
 .works-list-item:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
@@ -447,7 +453,6 @@ img {
 .works-list-link:hover .works-list-overlay,
 .works-list-link:focus .works-list-overlay {
   transform: translateY(0);
-
 }
 
 .thumb {
@@ -471,8 +476,7 @@ img {
   color: var(--white-text-color);
 
   transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
+  transition: transform var(--default-transition-delay) var(--default-transition-timing);
 }
 
 .portfolio-box {
@@ -567,7 +571,7 @@ img {
   height: 44px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--default-transition-delay) var(--default-transition-timing);
 }
 .footer-social-link:hover,
 .footer-social-link:focus {
@@ -586,13 +590,20 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(0,0);
+
+
+  transition: opacity var(--default-transition-delay) var(--default-transition-timing),
+  visibility var(--default-transition-delay) var(--default-transition-timing),
+  transform var(--default-transition-delay) var(--default-transition-timing);
 }
 .is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transform: translate(-10%,-10%);
 }
+
 .modal {
   position: absolute;
   top: 50%;
